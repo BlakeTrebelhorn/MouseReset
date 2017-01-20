@@ -10,22 +10,46 @@ midWidth = (width + 1) / 2
 midHeight = (height + 1) / 2
 
 
-def click(x, y):
-    time.sleep(0.5)
+def moveCursor(x, y):
+    time.sleep(0.1)
+    print('Moving mouse')
     win32api.SetCursorPos((x, y))
 
 
 def onclick(event):
     print(event.Position)
-    click(int(midWidth), int(midHeight))
+    moveCursor(int(midWidth), int(midHeight))
+    return True
+
+
+def wait(time_lapse):
+    time_start = time.time()
+    time_end = (time_start + time_lapse)
+
+    while time_end > time.time():
+        pass
+
+
+def checkCtrl(event):
+    if event.Key in ('Lcontrol', 'Rcontrol'):
+        print('Pausing for 10 Seconds')
+        hm.UnhookKeyboard()
+        hm.UnhookMouse()
+        wait(10)
+        hm.HookKeyboard()
+        hm.HookMouse()
     return True
 
 
 try:
     hm = pyHook.HookManager()
     hm.SubscribeMouseAllButtonsUp(onclick)
+    hm.SubscribeKeyDown(checkCtrl)
     hm.HookMouse()
+    hm.HookKeyboard()
     pythoncom.PumpMessages()
 except KeyboardInterrupt:
     hm.UnhookMouse()
+    hm.UnhookKeyboard()
     print('\nDone.')
+    exit()
