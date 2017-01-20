@@ -10,14 +10,14 @@ midWidth = (width + 1) / 2
 midHeight = (height + 1) / 2
 
 
-def click(x, y):
+def moveCursor(x, y):
     time.sleep(0.5)
     win32api.SetCursorPos((x, y))
 
 
 def onclick(event):
     print(event.Position)
-    click(int(midWidth), int(midHeight))
+    moveCursor(int(midWidth), int(midHeight))
     return True
 
 
