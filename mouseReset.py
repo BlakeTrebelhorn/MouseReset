@@ -11,7 +11,7 @@ midHeight = (height + 1) / 2
 
 
 def moveCursor(x, y):
-    time.sleep(0.1)
+    # time.sleep(0.2)
     print('Moving mouse')
     win32api.SetCursorPos((x, y))
 
@@ -43,7 +43,7 @@ def checkCtrl(event):
 
 try:
     hm = pyHook.HookManager()
-    hm.SubscribeMouseAllButtonsUp(onclick)
+    hm.SubscribeMouseLeftUp(onclick)
     hm.SubscribeKeyDown(checkCtrl)
     hm.HookMouse()
     hm.HookKeyboard()
