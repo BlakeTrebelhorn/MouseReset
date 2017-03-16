@@ -14,7 +14,7 @@ You're gonna have to have a few things installed:
 * Install pyHook `pip install pyhook`
 * Install pywin32 `pip install pywin32` or `pip install pypiwin32`
 
-Just run the mouseReset.py. You should be able to close the program without too much trouble. If all else fails, `ctrl + shift + esc` will override the mouse reset on click, and will let you end task on the python script running.
+Just run the <s>mouseReset.py</s> resetMouse.py. You should be able to close the program without too much trouble. If all else fails, `ctrl + shift + esc` will override the mouse reset on click, and will let you end task on the python script running.
 
 ### TODO
 * Make for macOS
